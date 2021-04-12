@@ -26,14 +26,14 @@ describe("Test User class", function () {
     });
 
     expect(u.username).toBe("joel");
-    expect(u.password).not.toBe(undefined);
+
   });
 
   test("can authenticate", async function () {
     let isValid = await User.authenticate("test", "password");
     expect(isValid).toBeTruthy();
 
-    isValid =  await User.authenticate("test", "xxx");
+    isValid = await User.authenticate("test", "xxx");
     expect(isValid).toBeFalsy();
   });
 
@@ -136,6 +136,6 @@ describe("Test messages part of User class", function () {
   });
 });
 
-afterAll(async function() {
+afterAll(async function () {
   await db.end();
 });
